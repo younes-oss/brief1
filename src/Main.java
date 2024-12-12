@@ -58,10 +58,12 @@ public class Main {
         System.out.print("\n------------menu--------------\n " +
                 "1. addition \n " +
                 "2. soustraction \n " +
-                "3. division \n " +
-                "4. multiplication\n" +
-                "5. puissance\n"+
-                "  saisir un nombre : ");
+                "3. multiplication \n " +
+                "4. division\n" +
+                " 5. puissance\n"+
+                " 6.racine: \n" +
+                " 7.factorielle\n"+
+                "choisir un nombre : ");
 
         choix = scanner.nextInt();
         switch (choix){
@@ -70,26 +72,60 @@ public class Main {
                 break;
             case 1:
                 inserer("Addition");
-                addition(a,b);
+                System.out.print("la somme de "+a+"+"+b+" = "+addition(a,b));
                 break;
             case 2:
-                System.out.println("######### factorielle #######");
-                System.out.print("entrer un nombre : ");
-                int a = scanner.nextInt();
-                System.out.print("le factorielle de  "+a+" : "+factorielle(a));
-            case 6:
-                System.out.println("######### racine #######");
-                System.out.print("entrer un nombre : ");
-                int b = scanner.nextInt();
-                System.out.print("la racine de "+ b +" = " +racine(b));;
+                inserer("soustraction");
+                System.out.print("la soustraction de "+a+"-"+b+" = "+soustraction(a,b));
                 break;
+            case 3:
+                inserer("multiplication");
+                System.out.print("la multiplication de "+a+"*"+b+" = "+multiplication(a,b));
+                break;
+            case 4:
+                inserer("division");
+                do {
+                    inserer("division");
+
+                }while(b==0);
+                System.out.print("la division de " + a + "/" + b + " = " + division(a, b));
+                break;
+
+            case 5:
+                inserer("puissance");
+                System.out.print("la puissance de "+a+" par "+b+" = "+puissance(a,b));
+                break;
+            case 6:
+                System.out.println("############ racine ###########");
+                while(!scanner.hasNextInt()){
+                    System.out.print("invalid input : "+scanner.next());
+                }
+                a = scanner.nextInt();
+                System.out.print("la racine de "+a+" = "+racine(a));
+                break;
+            case 7:
+                System.out.println("############ racine ###########");
+                while(!scanner.hasNextInt()){
+                    System.out.print("invalid input : "+scanner.next());
+                }
+                a = scanner.nextInt();
+                System.out.print("le factorielle  de "+a+" est "+factorielle(a));
+                break;
+
+
         }
     }
     static void inserer(String title){
         System.out.printf("\n############# %s ###############\n", title);
         System.out.print("saisir le premier nombre : ");
+        while(!scanner.hasNextInt()){
+            System.out.println("Invalid Input: " + scanner.next());
+        }
         a = scanner.nextInt();
         System.out.print("saisir le deuxiéme nombre : ");
+        while(!scanner.hasNextInt()){
+            System.out.print("invalid input: "+scanner.next());
+        }
         b = scanner.nextInt();
     }
 }
