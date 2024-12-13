@@ -63,8 +63,12 @@ public class Main {
                 " 5. puissance\n"+
                 " 6.racine: \n" +
                 " 7.factorielle\n"+
+                " 8.quitter\n"+
                 "choisir un nombre : ");
 
+        while(!scanner.hasNextInt()){
+            System.out.print("invalid input: "+scanner.next());
+        }
         choix = scanner.nextInt();
         switch (choix){
             case 0 : case 8:
@@ -85,7 +89,11 @@ public class Main {
             case 4:
                 inserer("division");
                 do {
-                    inserer("division");
+                    while(!scanner.hasNextInt()){
+                        System.out.print("invalid input: "+scanner.next());
+                    }
+                    System.out.print("\ns'il te plait veuiller ressayer d'entrer le deuxiéme nombre : \n");
+                    b = scanner.nextInt();
 
                 }while(b==0);
                 System.out.print("la division de " + a + "/" + b + " = " + division(a, b));
